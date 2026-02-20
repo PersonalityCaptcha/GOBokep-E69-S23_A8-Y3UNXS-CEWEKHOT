@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PANTAT SEPATU COLLECTION - 20 NSFW 😈</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #0b0015;
+      color: #f0e0ff;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      background-image: radial-gradient(circle at 10% 20%, rgba(200,0,150,0.04), transparent 40%);
+    }
+    header {
+      background: rgba(20,0,40,0.8);
+      backdrop-filter: blur(12px);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,0,180,0.15);
+    }
+    h1 {
+      font-size: 3.2rem;
+      background: linear-gradient(90deg, #ff0099, #cc00ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+      padding: 3rem 2rem;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.2rem;
+      background: #140028;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+      transition: all 0.35s ease;
+      cursor: pointer;
+      aspect-ratio: 3 / 4;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 0.7s forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity:1; transform:translateY(0); }
+    }
+    .card:nth-child(1)  { animation-delay: 0.05s; }
+    .card:nth-child(2)  { animation-delay: 0.10s; }
+    .card:nth-child(3)  { animation-delay: 0.15s; }
+    /* ... delay bertambah 0.05s per card */
+
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 60px rgba(255,0,180,0.35);
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .card:hover img {
+      transform: scale(1.12);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,0,20,0.98);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(10px);
+    }
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 94vh;
+      border-radius: 1rem;
+      box-shadow: 0 0 90px rgba(255,0,180,0.6);
+      transform: scale(0.75);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    .lightbox.active img {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .close-btn {
+      position: absolute;
+      top: 35px;
+      right: 35px;
+      font-size: 4rem;
+      color: #ff00aa;
+      cursor: pointer;
+      text-shadow: 0 0 25px #000;
+    }
+    .close-btn:hover { color: #ff66ff; transform: scale(1.2); }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .gallery { padding: 2rem 1rem; gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PANTAT SEPATU NSFW - 20 STANDING HOT 🔥</h1>
+  </header>
+
+  <div class="gallery">
+    <!-- 20 SLOT – GANTI SRC DENGAN LINK GAMBAR NSFW LO SENDIRI -->
+    <!-- Contoh: upload ke imgur.com atau postimages.org dulu -->
+    <div class="card" onclick="openLightbox(this)">
+      <img src="https://i.ibb.co/h1s7LqsP/images.jpg" alt="Cewe 1">
+    </div>
+
+div class="card" onclick="openLightbox(this)">
+      <img src="https://i.ibb.co/rR9ytx9Q/images-1.jpg" alt="Cewe 2">
+    </div>
+
+    <!-- Ulangi 19 kali lagi -->
+    <!-- <div class="card" onclick="openLightbox(this)"><img src="https://i.imgur.com/placeholder2.jpg" alt="Cewe 3"></div> -->
+    <!-- dst sampai placeholder20 -->
+
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt="Zoom NSFW">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function openLightbox(card) {
+      lightboxImg.src = card.querySelector('img').src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Stagger animasi fade-in
+    document.querySelectorAll('.card').forEach((card, i) => {
+      card.style.animationDelay = `${i * 0.06}s`;
+    });
+  </script>
+
+</body>
+</html>
