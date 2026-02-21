@@ -1,0 +1,36 @@
+name: Auto Update Config
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Config JSON
+        run: |
+          VERSION=$(date +'%Y.%m.%d.%H%M')
+          echo "{
+            \"app_name\": \"Pantat Sepatu Cewek\",
+            \"latest_version\": \"$VERSION\",
+            \"status\": \"online\",
+            \"windows_keys\": {
+              \"windows_12\": \"5005-ZREAz-4523\",
+              \"windows_11\": \"4258-XAEIb-3235\"
+            },
+            \"message\": \"Auto updated by GitHub Actions\"
+          }" > config.json
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add config.json
+          git commit -m "Auto update config"
+          git push
